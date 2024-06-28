@@ -12,14 +12,25 @@ import { Label } from "../label";
 import { Input } from "../input";
 import { Textarea } from "../textarea";
 import { FormEvent, useState } from "react";
+import { useAppDispatch } from "../../../redux/hooks";
+import { addTodo } from "../../../redux/features/todoSlice";
 
 const AddTodoModal = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+  const dispatch = useAppDispatch()
 
   const handleFormSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log(title, description);
+
+    const randomString =
+      Date.now().toString(36) + Math.random().toString(36).substring(2);
+    const todoDetails = {
+      id: randomString,
+      title,
+      description,
+    }
+    dispatch(addTodo(todoDetails))
   };
 
   return (
@@ -31,9 +42,9 @@ const AddTodoModal = () => {
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>Edit profile</DialogTitle>
+          <DialogTitle>Add Todo </DialogTitle>
           <DialogDescription>
-            Make changes to your profile here. Click save when you're done.
+            Add Todo Title and Details here.
           </DialogDescription>
         </DialogHeader>
         {/* dialog body */}
