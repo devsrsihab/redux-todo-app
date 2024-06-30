@@ -12,26 +12,31 @@ import { Label } from "../label";
 import { Input } from "../input";
 import { Textarea } from "../textarea";
 import { FormEvent, useState } from "react";
-import { useAppDispatch } from "../../../redux/hooks";
-import { addTodo } from "../../../redux/features/todoSlice";
+import { useAddTodosMutation } from "../../../redux/api/api";
+import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "../select";
 
 const AddTodoModal = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-  const dispatch = useAppDispatch()
+  const [priority, setPriority] = useState("");
 
+ const [addTodo] = useAddTodosMutation()
+   
   const handleFormSubmit = (event: FormEvent) => {
-    event.preventDefault();
+    event.preventDefault()
 
-    const randomString =
-      Date.now().toString(36) + Math.random().toString(36).substring(2);
     const todoDetails = {
-      id: randomString,
       title,
       description,
+      priority,
+      isCompleted: false
     }
-    dispatch(addTodo(todoDetails))
+
+    addTodo(todoDetails)
+
   };
+
+
 
   return (
     <Dialog>
@@ -69,6 +74,23 @@ const AddTodoModal = () => {
                 id="description"
                 className="col-span-3"
               />
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4">
+              <Label htmlFor="Priority" className="text-right">
+                Priority
+              </Label>
+              <Select onValueChange={(Value) => setPriority(Value)}>
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="Select a Priority" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="High">High</SelectItem>
+                    <SelectItem value="Medium">Medium</SelectItem>
+                    <SelectItem value="Low">Low</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
             </div>
           </div>
 

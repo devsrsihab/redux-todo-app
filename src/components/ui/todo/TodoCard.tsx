@@ -1,20 +1,51 @@
-import { removeTodo } from "../../../redux/features/todoSlice";
+import { removeTodo, toggleCompleted } from "../../../redux/features/todoSlice";
 import { useAppDispatch } from "../../../redux/hooks";
 import { Button } from "../button";
 
 type TTodoCardProps = {
+  id: string;
   title: string;
   description: string;
-  id: string;
+  isCompleted?: boolean;
+  priority: string;
 };
 
-const TodoCard = ({ title, description, id }: TTodoCardProps) => {
-  const dispatch = useAppDispatch()
+const TodoCard = ({
+  title,
+  description,
+  id,
+  isCompleted,
+  priority,
+}: TTodoCardProps) => {
+  const dispatch = useAppDispatch();
+
+  // hanlde completed
+  const handleCompleted = () => {
+    dispatch(toggleCompleted(id));
+  };
   return (
     <div className="bg-white rounded-md flex justify-between items-center p-3 border">
-      <input type="checkbox" />
-      <p className="font-semibold">{title}</p>
-      <p>{description}</p>
+      <input className="mx-3" onChange={handleCompleted} type="checkbox" />
+      <p className="flex-1 font-semibold">{title}</p>
+      <div className="flex-1 flex  items-center gap-2">
+        <div
+          className={`size-3 rounded-full
+          ${priority === "High" ? "bg-red-500" :''}
+          ${priority === "Medium" ? "bg-yellow-500": ''}
+          ${priority === "Low" ? "bg-green-500": ''}`}
+        ></div>
+        <p>{priority}</p>
+      </div>
+      <p className="flex-1">{description}</p>
+      <div className="flex-1">
+        <p>
+          {isCompleted ? (
+            <p className="text-green-500 font-semibold">Completed</p>
+          ) : (
+            <p className="text-red-500 font-semibold">Pending</p>
+          )}
+        </p>
+      </div>
       <div className="space-x-5">
         <Button
           onClick={() => dispatch(removeTodo(id))}

@@ -1,0 +1,95 @@
+{
+  "todos": [
+    {
+      "title": "Buy groceries",
+      "description": "Purchase milk, eggs, bread, and fruits",
+      "priority": "High",
+      "isCompleted": false,
+      "id": "8338"
+    },
+    {
+      "title": "Complete project report",
+      "description": "Finalize and submit the quarterly project report",
+      "priority": "Medium",
+      "isCompleted": false,
+      "id": "730c"
+    },
+    {
+      "title": "Workout",
+      "description": "Go for a 30-minute run",
+      "priority": "Low",
+      "isCompleted": false,
+      "id": "a747"
+    },
+    {
+      "title": "Read book",
+      "description": "Finish reading 'The Great Gatsby'",
+      "priority": "Low",
+      "isCompleted": true,
+      "id": "2180"
+    },
+    {
+      "title": "Call Mom",
+      "description": "Check in and see how she's doing",
+      "priority": "High",
+      "isCompleted": false,
+      "id": "2c53"
+    },
+    {
+      "title": "Schedule dentist appointment",
+      "description": "Book a check-up for next week",
+      "priority": "Medium",
+      "isCompleted": true,
+      "id": "4fe3"
+    },
+    {
+      "title": "Clean house",
+      "description": "Vacuum and dust all rooms",
+      "priority": "Low",
+      "isCompleted": false,
+      "id": "6fe3"
+    },
+    {
+      "title": "Finish coding assignment",
+      "description": "Complete the JavaScript exercise",
+      "priority": "High",
+      "isCompleted": true,
+      "id": "726e"
+    },
+    {
+      "title": "Plan weekend trip",
+      "description": "Organize itinerary and book accommodation",
+      "priority": "Medium",
+      "isCompleted": false,
+      "id": "a7bf"
+    },
+    {
+      "title": "Attend team meeting",
+      "description": "Participate in the weekly team sync-up",
+      "priority": "High",
+      "isCompleted": true,
+      "id": "53a1"
+    },
+    {
+      "id": "20a8",
+      "title": "teddd ",
+      "description": "dsfdffd",
+      "priority": "High",
+      "isCompleted": false
+    },
+    {
+      "id": "52cc",
+      "title": "ssss",
+      "description": "ddddd",
+      "priority": "Low",
+      "isCompleted": false
+    },
+    {
+      "id": "aaca",
+      "title": "sohan todo",
+      "description": "desck",
+      "priority": "High",
+      "isCompleted": false
+    }
+  ]
+}
